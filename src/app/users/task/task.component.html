@@ -1,0 +1,31 @@
+<div class="container mt-4">
+    <h2 class="text-center text-primary mb-4">🎸 Tus Tareas</h2>
+  
+    <!-- Tarea pendiente -->
+    <div class="card border-start border-warning border-4 mb-2 shadow-sm" *ngFor="let tasks of task">
+        <div class="card-body py-2 px-3">
+          <h6 class="card-title mb-1">🎵 {{tasks.title}}</h6>
+          <p class="card-text text-muted small mb-1">{{tasks.description}}</p>
+          <span class="badge text-white"   [ngClass]= "{
+            'bg-primary':tasks.completed,
+            'bg-danger':!tasks.completed
+          }">
+            {{tasks.completed ?  'completado' : 'pendiente'}}</span>
+          <span class="bg-success text-dark">
+            {{ tasks.createdAt | date: 'yyyy-MM-dd' }}
+          </span>
+                    {{ tasks.timeEstimate | date: 'HH:mm:ss' }}        </div>
+        <div class="d-flex justify-content-end gap-2 px-3 pb-2">
+          <button class="btn btn-success btn-sm py-0 px-2" 
+          (click)="markCompleteTask(tasks.id)"
+          >
+          completado
+          </button>
+          <button class="btn btn-danger btn-sm py-0 px-2" >
+            Archivar
+          </button>
+        </div>
+      </div>      
+      
+  </div>
+  
