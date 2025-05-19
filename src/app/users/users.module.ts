@@ -3,15 +3,18 @@ import { CommonModule } from '@angular/common';
 
 import { UsersRoutingModule } from './users-routing.module';
 import { TaskComponent } from './task/task.component';
+import { CreateComponent } from './create/create.component';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
   declarations: [
-    TaskComponent
+    TaskComponent,
+    CreateComponent
   ],
   imports: [
     CommonModule,
-    UsersRoutingModule
+    UsersRoutingModule,FormsModule,ReactiveFormsModule
   ]
 })
 export class UsersModule { }

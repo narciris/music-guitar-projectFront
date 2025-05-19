@@ -1,0 +1,87 @@
+<div class="container mt-5">
+    <div class=" row justify-content-center">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-body">
+                    <h3 class="text-center mb-4"> Crear una tarea</h3>
+                    <form [formGroup]="taskForm" (ngSubmit)="onCreateTask()">
+                        <div class="mb-3">
+                            <label
+                             for="title" 
+                             class="form-label 
+                             text-dark">Titulo</label>
+                            <input
+                            formControlName="title"
+                             type="text"
+                             class="form-control">
+                
+                        </div>
+                        <ng-container *ngIf="isValidField('title')">
+                            <small *ngFor="let msg of getFieldErrors('title')"
+                             class="text-danger">
+                              {{ msg }}
+                            </small>
+                          </ng-container>
+                          
+
+                        <div class="mb-3">
+                            <label
+                             for="description" 
+                             class="form-label 
+                             text-dark">Descripcion</label>
+                            <input
+                            formControlName="description"
+                             type="text"
+                             class="form-control"
+                             placeholder="AGrega una descripcion"
+                             >
+                
+                        </div>
+                        <ng-container *ngIf="isValidField('description')">
+                            <small *ngFor="let msg of getFieldErrors('description')"
+                            class="text-danger"
+                            > {{msg}}
+                        </small>
+
+                        </ng-container>
+                        <div class="mb-3">
+                            <label
+                             for="dueDate" 
+                             class="form-label 
+                             text-dark">Fecha creacion</label>
+                            <input
+                            formControlName="createdAt"
+                             type="date"
+                             class="form-control">
+                
+                        </div>
+
+                        <div class="mb-3">
+                            <label
+                             for="timeEstimate" 
+                             class="form-label 
+                             text-dark">Hora de creacion</label>
+                            <input
+                            formControlName="timeEstimate"
+                             type="date"
+                             class="form-control">
+                
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="category" class="form-label text-dark">Categoría</label>
+                            <select id="category" name="category" class="form-select" formControlName="category">
+                              <option value="" disabled selected>Selecciona una categoría</option>
+                              <option value="theory">Teoría</option>
+                              <option value="practice">Práctica</option>
+                              <option value="exam">Examen</option>
+                            </select>
+                          </div>
+                          
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>

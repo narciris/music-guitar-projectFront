@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment-dev';
 import { Observable } from 'rxjs';
-import { taskResponse } from '../../interfaces/task.interface';
+import { taskRequest, taskResponse } from '../../interfaces/task.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -19,6 +19,12 @@ export class TaskService {
 
   completeTask(id: number):Observable<taskResponse>{
     return this.http.patch<taskResponse>(`${this.BASE_URL}/complete/${id}`,{});
+
+  }
+
+  createTask(taskRequest:taskRequest): Observable<taskResponse>{
+
+   return this.http.post<taskResponse>(`${this.BASE_URL}`,taskRequest)
 
   }
 }

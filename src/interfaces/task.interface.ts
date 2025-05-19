@@ -1,3 +1,5 @@
+import { categoryTask } from "../app/enums/task.enum";
+
 export interface taskResponse {
     id:           number;
     title:        string;
@@ -5,4 +7,13 @@ export interface taskResponse {
     timeEstimate: Date;
     createdAt:    Date;
     completed: boolean
+    category: string
+}
+
+export interface taskRequest{
+    title: string,
+    description: string,
+    timeEstimate: string,
+    createdAt: Date,
+    category: categoryTask
 }
